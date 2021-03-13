@@ -1,0 +1,30 @@
+<!-- Previously added in SIS home page html for students/parents -->
+
+<!-- Begin Report Card URL Generation -JD -->
+
+<div id = "tag" style="text-align: center"> <a id="key2" href="#" onclick="urlgen();">Download Report Card Here</a> </div>
+<td>
+	<input type="hidden" id="key" name="[Students.U_StudentsUserFields]AUSD_HASHKEY" maxlength="40" size="30" value="">
+	<input type = "hidden" id = "grd" name= "[01]grade_level" value = "">
+</td>
+
+<script type="text/javascript">
+var g = document.getElementById('grd').value;
+var hash = document.getElementById('key').value;
+if(g < 6 && hash !== '') {
+	document.getElementById("tag").style.display = 'text-align: center';
+	document.getElementById("key2").style.display = 'inline';
+}	else {
+	document.getElementById("tag").style.display = 'none';
+}
+</script>
+
+<script type="text/javascript">
+function urlgen(){
+    var pd = ".pdf";
+	var hash = document.getElementById('key').value;
+    var lnk = document.getElementById('key2');
+    lnk.href = "/guardian/reportcards/" + hash + pd;
+    
+}
+</script>
